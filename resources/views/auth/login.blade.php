@@ -4,7 +4,10 @@
 
 <section>
     <div class="container">
-        <h5 style="margin-top: 25px;">Masuk</h5>
+        <div class="center" style="margin-top: 25px;">
+            <img src="{{ asset('images/logo.jpeg') }}" width="40%" alt="">
+        </div>
+        <h5 style="margin-top: 0;">Masuk</h5>
         <p>Masuk untuk mengelolah data.</p>
         <div class="row">
             <form class="col s12" action="{{ route('login.do') }}" method="POST">

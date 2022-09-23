@@ -3,19 +3,22 @@
 @section('content')
 
 {{-- NAVBAR --}}
+
 <nav class="light-blue darken-4">
-    <div class="nav-wrapper">
-        {{-- <div class="container"> --}}
-        <a href="#" class="brand-logo amber-text" style="font-size: 16pt; font-weight: bold">Misdinar MBL</a>
-        <ul id="nav-mobile" class="right">
-            @guest
-            <li><a href="{{ route('login') }}"><i class="medium material-icons white-text">login</i></a></li>
-            @endguest
-            @auth
-            <li><a href="{{ route('logout') }}"><i class="medium material-icons white-text">logout</i></a></li>
-            @endauth
-        </ul>
-        {{-- </div> --}}
+    <div class="container">
+        <div class="nav-wrapper">
+            {{-- <div class="container"> --}}
+            <a href="#" class="brand-logo amber-text" style="font-size: 16pt; font-weight: bold">Misdinar MBL</a>
+            <ul id="nav-mobile" class="right">
+                @guest
+                <li><a href="{{ route('login') }}"><i class="medium material-icons white-text">login</i></a></li>
+                @endguest
+                @auth
+                <li><a href="{{ route('logout') }}"><i class="medium material-icons white-text">logout</i></a></li>
+                @endauth
+            </ul>
+            {{-- </div> --}}
+        </div>
     </div>
 </nav>
 {{-- END NAVBAR --}}
