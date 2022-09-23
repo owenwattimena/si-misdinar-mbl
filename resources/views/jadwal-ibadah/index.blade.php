@@ -34,7 +34,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input placeholder="Masukan jam" id="jam" type="time" name="jam" class="validate" required>
-                                <label for="jam">Tanggal</label>
+                                <label for="jam">Jam</label>
                             </div>
                         </div>
                         <div class="row">
