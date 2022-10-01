@@ -32,7 +32,7 @@
                         @csrf
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Masukan misa" id="tanggal" type="datetime-local" value="{{ date("Y-m-d H:i:s") }}" name="tanggal" class="validate" required>
+                                <input placeholder="Masukan misa" id="tanggal" type="datetime-local" value="{{ $date}}" name="tanggal" class="validate" required>
                                 <label for="tanggal">Tanggal</label>
                             </div>
                             <div class="input-field col s12">
@@ -65,62 +65,69 @@
 {{-- END NAVBAR --}}
 
 <section>
-    <div class="row">
-        <div class="col s6 right-align">
-        </div>
-        <div class="col s6 right-align">
-            <input id='calendar' value="{{ $date }}" style="margin-bottom: 0; height: 30px; width: 100px;">
-        </div>
-        <div class="col s12">
-            <div class="row" style="margin-bottom: 0;">
-                <div class="col s12 m5" style="padding: 0;">
-                    <div class="card-panel white center-align vp-0" style="padding: 0; margin-bottom: 0;">
-                        <div class="row" style="margin-bottom: 0;">
-                            <div class="col s4 bold green-text darken-4" style="padding: 0;">Debit<br>
-                                <h6 style="font-size: 12px">Rp. {{ number_format($debit ) }}</h6>
-                            </div>
-                            <div class="col s4 bold red-text darken-4" style="padding: 0;">Kredit<br>
-                                <h6 style="font-size: 12px">Rp. {{ number_format($kredit) }}</h6>
-                            </div>
-                            <div class="col s4 bold blue-text darken-4" style="padding: 0;">Saldo<br>
-                                <h6 style="font-size: 12px">Rp. {{ number_format( $saldo ) }}</h6>
+    <div class="container">
+        <div class="row">
+            <div class="col s6 right-align">
+            </div>
+            <div class="col s6 right-align">
+                
+                {{-- <jsuites-calendar value="{{ $date }}" year-month-picker></jsuites-calendar> --}}
+                <input id='calendar' value="{{ $date }}" style="margin-bottom: 0; height: 30px; width: 100px;">
+            </div>
+            <div class="col s12">
+                <div class="row" style="margin-bottom: 0;">
+                    <div class="col s12 m5" style="padding: 0;">
+                        <div class="card-panel white center-align vp-0" style="padding: 0; margin-bottom: 0;">
+                            <div class="row" style="margin-bottom: 0;">
+                                <div class="col s4 bold green-text darken-4" style="padding: 0;">Debit<br>
+                                    <h6 style="font-size: 12px">Rp. {{ number_format($debit ) }}</h6>
+                                </div>
+                                <div class="col s4 bold red-text darken-4" style="padding: 0;">Kredit<br>
+                                    <h6 style="font-size: 12px">Rp. {{ number_format($kredit) }}</h6>
+                                </div>
+                                <div class="col s4 bold blue-text darken-4" style="padding: 0;">Saldo<br>
+                                    <h6 style="font-size: 12px">Rp. {{ number_format( $saldo ) }}</h6>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <ul class="collection">
-                @forelse ($keuangan as $item)
-                @php
-                setLocale(LC_TIME, 'id_ID');
-                $date=strftime("%a, %d %b %Y", strtotime($item->tanggal));
-                @endphp
-                <li class="collection-item">
-                    <div>{{ $date }} <br> {{ $item->keterangan }} <span class="secondary-content valign-wrapper"> <span class="{{ $item->tipe == 'kredit' ? 'red' : 'green' }}-text" style="margin-top: 0px;">Rp. {{ number_format($item->jumlah) }}</span> @auth<i class="material-icons" style="margin-left: 20px;" onclick="return hapus('{{ route('keuangan.delete', $item->id) }}')">delete</i> @endauth </span></div>
-                </li>
-                @empty
-                Tidak ada data.
-                @endforelse
-            </ul>
+                <ul class="collection">
+                    @forelse ($keuangan as $item)
+                    @php
+                    setLocale(LC_TIME, 'id_ID');
+                    $date=strftime("%a, %d %b %Y", strtotime($item->tanggal));
+                    @endphp
+                    <li class="collection-item">
+                        <div>{{ $date }} <br> {{ $item->keterangan }} <span class="secondary-content valign-wrapper"> <span class="{{ $item->tipe == 'kredit' ? 'red' : 'green' }}-text" style="margin-top: 0px;">Rp. {{ number_format($item->jumlah) }}</span> @auth<i class="material-icons" style="margin-left: 20px;" onclick="return hapus('{{ route('keuangan.delete', $item->id) }}')">delete</i> @endauth </span></div>
+                    </li>
+                    @empty
+                    Tidak ada data.
+                    @endforelse
+                </ul>
 
+            </div>
         </div>
     </div>
-
 </section>
 @endsection
 
 @section('script')
 <script src="https://jsuites.net/v4/jsuites.js"></script>
+<script src="https://jsuites.net/v4/jsuites.webcomponents.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 
         var calendar = jSuites.calendar(document.getElementById('calendar'), {
             type: 'year-month-picker'
-            , format: 'MMM-YYYY'
+            , format: 'MM-YYYY'
             , onchange: function(element, newVal, oldVal) {
                 if (oldVal != null) {
-                    window.location = `{{ url('keuangan') }}?tanggal=` + newVal;
+                    var arr_date = newVal.split(' ');
+                    console.log(arr_date);
+                    // return
+                    window.location = `{{ url('keuangan') }}?tanggal=` + arr_date[0];
                 }
             }
         });

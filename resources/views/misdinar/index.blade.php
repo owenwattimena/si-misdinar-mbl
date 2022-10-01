@@ -69,7 +69,7 @@
 <section>
     <div class="container">
 
-        <p class="flow-text">Pelayan Misa</p>
+        <p class="flow-text">Data Misdinar</p>
 
         <blockquote style="margin: 0">Total {{ count($misdinar) }} Misdinar</blockquote>
 

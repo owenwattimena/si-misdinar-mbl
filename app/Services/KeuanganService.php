@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class KeuanganService
 {
-    public static function keuangan($tanggal = null, $cari = false)
+    public static function keuangan($tanggal = null)
     {
         if($tanggal !=null){
-            $date = new DateTime( $cari ? $tanggal : strtotime( $tanggal )) ;
-            $month = ($date->format('m'));
+            $arrTgl = explode('-', $tanggal);
+            $month = ($arrTgl[1]);
             $data = DB::table('keuangan')->whereMonth('tanggal', $month)->orderBy('tanggal', 'desc')->get();
         }else{
             $data = DB::table('keuangan')->orderBy('tanggal', 'desc')->get();

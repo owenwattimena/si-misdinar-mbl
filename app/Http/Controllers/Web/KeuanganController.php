@@ -12,26 +12,18 @@ class KeuanganController extends Controller
 {
     public function index(Request $request)
     {
-        $date = date("d/m/Y");
-        $cari = false;
+        $date = date("Y-m-d");
         if ($request->tanggal) {
-            $arrFullTgl = explode(" ", $request->tanggal);
-            $arrTgl = explode('-', $arrFullTgl[0]);
-            $tahun = "20" . $arrTgl[0];
-            $bulan = $arrTgl[1];
-            $tanggal = $arrTgl[2];
-            $tanggal = $tanggal . '/' . $bulan . '/' . $tahun;
-            $date = strtotime($tanggal);
-            $date = date('d/m/Y', $date);
-            $cari = true;
+            $date = $request->tanggal;
         }
-        $keuangan = KeuanganService::keuangan($date, $cari);
+        $keuangan = KeuanganService::keuangan($date);
         $keuanganAll = KeuanganService::keuangan();
         $data['keuangan'] = $keuangan;
         $data['saldo'] = collect($keuanganAll)->sum('jumlah');
         $data['kredit'] = collect($keuangan)->where('tipe', 'kredit')->sum('jumlah');
         $data['debit'] = collect($keuangan)->where('tipe', 'debit')->sum('jumlah');
         $data['date'] = $date;
+        // dd($data);
         return view('keuangan.index', $data);
     }
 

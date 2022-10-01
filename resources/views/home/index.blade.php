@@ -31,7 +31,7 @@
 
         <div class="row">
             <div class="col s12 m12">
-                <x-menu-card to="{{ route('misdinar') }}" judul="Misdinar" deskripsi="Pelayan Altar" icon="wc" />
+                <x-menu-card to="{{ route('misdinar') }}" judul="Misdinar" deskripsi="Data Misdinar" icon="wc" />
                 <x-menu-card to="{{ route('program-kerja') }}" judul="Program Kerja" deskripsi="Rencana Kerja" icon="workspace_premium" />
                 <x-menu-card to="{{ route('jadwal-ibadah') }}" judul="Jadwal Ibadah" deskripsi="Ibadah PPA" icon="church" />
                 <x-menu-card to="{{ route('pelayan-misa') }}" judul="Pelayan Misa" deskripsi="Misdinar Bertugas" icon="supervised_user_circle" />
