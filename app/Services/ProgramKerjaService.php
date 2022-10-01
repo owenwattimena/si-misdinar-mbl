@@ -21,6 +21,7 @@ class ProgramKerjaService
         return DB::table('program_kerja')->insert(
             [
                 'seksi' => $request->seksi,
+                'periode' => $request->periode,
                 'program_kerja' => $request->program_kerja
             ]
         );
@@ -30,6 +31,7 @@ class ProgramKerjaService
         return DB::table('program_kerja')->where('id', $id)->update(
             [
                 'seksi' => $request->seksi,
+                'periode' => $request->periode,
                 'program_kerja' => $request->program_kerja
             ]
         );

@@ -22,6 +22,7 @@ class ProgramKerjaController extends Controller
     {
         $request->validate([
             'seksi' => 'required',
+            'periode' => 'required',
             'program_kerja' => 'required'
         ]);
 
@@ -45,6 +46,7 @@ class ProgramKerjaController extends Controller
     {
         $request->validate([
             'seksi' => 'required',
+            'periode' => 'required',
             'program_kerja' => 'required'
         ]);
 

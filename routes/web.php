@@ -22,6 +22,9 @@ use App\Http\Controllers\Web\ProgramKerjaController;
 
 
 Route::get('/', function () {
+    return view('splash-screen.index');
+})->name('splash');
+Route::get('/home', function () {
     return view('home.index');
 })->name('home');
 

@@ -32,6 +32,7 @@
     <section>
         <div class="container">
             @guest
+            <h4>Periode : {{ $programKerja->periode }}</h4>
             {!! $programKerja->program_kerja !!}
             @endguest
 
@@ -40,14 +41,18 @@
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="seksi" type="text" name="seksi" value="{{ $programKerja->seksi }}" class="validate">
+                            <input id="seksi" type="text" name="seksi" value="{{ $programKerja->seksi }}" class="validate" required>
                             <label for="seksi">Seksi</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="periode" type="text" name="periode" value="{{ $programKerja->periode }}" placeholder="Cth: 2022-2026" class="validate" required>
+                            <label for="periode">Periode</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <!-- element to edit -->
-                            <textarea id="editor" name="program_kerja">{!! $programKerja->program_kerja !!}</textarea>
+                            <textarea id="editor" name="program_kerja" required>{!! $programKerja->program_kerja !!}</textarea>
                         </div>
                     </div>
                 </form>
