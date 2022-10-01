@@ -16,7 +16,7 @@
         <nav class="light-blue darken-4">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="{{ url('/') }}" class="brand-logo amber-text left font12 truncate"><i class="material-icons ">arrow_back</i> {{ $programKerja->seksi }}</a>
+                    <a href="{{ route('home') }}" class="brand-logo amber-text left font12 truncate"><i class="material-icons ">arrow_back</i> {{ $programKerja->seksi }}</a>
                     @auth
                     <ul id="nav-mobile" class="right">
                         <li><button type="submit" class="waves-effect waves-light btn-flat"><i class="tiny material-icons white-text" style="margin-top: -12px">save</i></button></li>

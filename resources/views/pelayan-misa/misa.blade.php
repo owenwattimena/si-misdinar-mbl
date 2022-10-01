@@ -13,7 +13,7 @@
                 setLocale(LC_TIME, 'id_ID');
                 $date=strftime("%a, %d %b %Y", strtotime($jadwal->tanggal));
                 @endphp
-                <a href="{{ url('/') }}" class="brand-logo amber-text left font16"><i class="material-icons ">arrow_back</i> {{ $date }}</a>
+                <a href="{{ route('home') }}" class="brand-logo amber-text left font16"><i class="material-icons ">arrow_back</i> {{ $date }}</a>
                 @auth
                 <ul id="nav-mobile" class="right">
                     <li><a href="#modal" class="waves-effect waves-light btn modal-trigger btn-flat"><i class="medium material-icons white-text">add</i></a></li>

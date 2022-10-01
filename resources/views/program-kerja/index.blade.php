@@ -9,7 +9,7 @@
     <nav class="light-blue darken-4">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="{{ url('/') }}" class="brand-logo amber-text left font16"><i class="material-icons ">arrow_back</i> PROGRAM KERJA</a>
+                <a href="{{ route('home') }}" class="brand-logo amber-text left font16"><i class="material-icons ">arrow_back</i> PROGRAM KERJA</a>
                 @auth
                 <ul id="nav-mobile" class="right">
                     <li><a href="{{ route('program-kerja.tambah') }}" class="waves-effect waves-light btn btn-flat"><i class="medium material-icons white-text">add</i></a></li>
