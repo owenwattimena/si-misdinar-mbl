@@ -56,11 +56,11 @@
                 <div class="collapsible-header">
                     @auth
 
-                    <a href="#misa1" class="btn btn-flat modal-trigger" style="padding: 0">
+                    <a href="#misa{{ $item->id }}" class="btn btn-flat modal-trigger" style="padding: 0">
                         <i class="material-icons green-text" style="margin-right: 0;">add</i>
                     </a>
                     <!-- Modal Structure -->
-                    <div id="misa1" class="modal modal-fixed-footer">
+                    <div id="misa{{ $item->id }}" class="modal modal-fixed-footer">
                         <form action="{{ route('pelayan-misa.misa.store.misdinar', ['id' => $jadwal->id, 'idMisa' => $item->id]) }}" class="col s12" method="POST">
                             <div class="modal-content black-text">
                                 <h5 class="bold">Misdinar</h5>
