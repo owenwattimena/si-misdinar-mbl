@@ -37,8 +37,8 @@
                             </div>
                             <div class="input-field col s12">
                                 <select required class="validate" name="tipe">
-                                    <option value="kredit">Kredit</option>
-                                    <option value="debit">Debit</option>
+                                    <option value="kredit">Pengeluaran</option>
+                                    <option value="debit">Pemasukan</option>
                                 </select>
                                 <label class="active">Tipe</label>
                             </div>
@@ -79,10 +79,10 @@
                     <div class="col s12 m5" style="padding: 0;">
                         <div class="card-panel white center-align vp-0" style="padding: 0; margin-bottom: 0;">
                             <div class="row" style="margin-bottom: 0;">
-                                <div class="col s4 bold green-text darken-4" style="padding: 0;">Debit<br>
+                                <div class="col s4 bold green-text darken-4" style="padding: 0;">Pemasukan<br>
                                     <h6 style="font-size: 12px">Rp. {{ number_format($debit ) }}</h6>
                                 </div>
-                                <div class="col s4 bold red-text darken-4" style="padding: 0;">Kredit<br>
+                                <div class="col s4 bold red-text darken-4" style="padding: 0;">Pengeluaran<br>
                                     <h6 style="font-size: 12px">Rp. {{ number_format($kredit) }}</h6>
                                 </div>
                                 <div class="col s4 bold blue-text darken-4" style="padding: 0;">Saldo<br>
